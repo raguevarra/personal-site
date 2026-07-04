@@ -161,7 +161,7 @@ function App() {
               w="100%"
               h="100%"
               objectFit="cover"
-              objectPosition="center 40%"
+              objectPosition="center 55%"
               display="block"
             />
           </Box>
@@ -172,12 +172,12 @@ function App() {
             <Card.Body gap={4}>
               <Heading size="md">👤 About Me</Heading>
               <Text color="gray.700">
-                I&apos;m a full-stack engineer who enjoys building end-to-end web
+                I'm a full-stack engineer who enjoys building end-to-end web
                 applications that make an impact. I care about craft, performance,
                 and creating smooth user experiences.
               </Text>
               <Text color="gray.700">
-                When I&apos;m not coding, you&apos;ll probably find me exploring new
+                When I'm not coding, you'll probably find me exploring new
                 games, listening to music, hitting the gym, or sketching out ideas.
               </Text>
             </Card.Body>
