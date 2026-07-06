@@ -13,7 +13,8 @@
     "@chakra-ui/react": "latest",
     "@emotion/react": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-router-dom": "^7.18.1"
   },
   "devDependencies": {
     "@eslint/js": "latest",
