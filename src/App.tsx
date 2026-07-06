@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   Card,
-  Container,
   Flex,
   Grid,
   Heading,
@@ -49,7 +48,7 @@ const techStack = [
   "Git",
   "Docker",
   "Vercel",
-]
+];
 
 const interests = ["Games", "Anime", "Music", "Fitness", "Tech"];
 
@@ -169,7 +168,7 @@ function App() {
                     <Flex gap={2} flexWrap="wrap" align="flex-start">
                       {project.tags.map((tag) => (
                         <Box
-                          key="tag"
+                          key={tag}
                           as="span"
                           bg="purple.50"
                           color="purple.700"
