@@ -15,27 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 import Layout from "./components/Layout";
-
-const projects = [
-  {
-    name: "Personal Finance Tracker",
-    description:
-      "A personal finance tracker developed as a side project using PostgreSQL, Next.js, and React",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "React", "Prisma"],
-  },
-  {
-    name: "Personal Website",
-    description:
-      "A personal website to act as a portfolio for current and previous projects.",
-    tags: ["React", "TypeScript", "Vite"],
-  },
-  {
-    name: "RDT Over UDP Protocol",
-    description:
-      "A RDT-like transfer protocol built over UDP connections for a school course.",
-    tags: ["Python", "Computer Networking"],
-  },
-];
+import { projects } from "./data/projects";
 
 const techStack = [
   "JavaScript",
@@ -53,6 +33,8 @@ const techStack = [
 const interests = ["Games", "Anime", "Music", "Fitness", "Tech"];
 
 function App() {
+  const featuredProjects = projects.filter((project) => project.featured);
+
   return (
     <Layout>
       <Grid
@@ -157,7 +139,7 @@ function App() {
             </Flex>
 
             <SimpleGrid columns={{ base: 1, md: 3 }} gap={4}>
-              {projects.map((project) => (
+              {featuredProjects.map((project) => (
                 <Card.Root key={project.name} overflow="hidden" rounded="xl">
                   <Box h="96px" bg="purple.100" />
                   <Card.Body gap={2} p={4}>
