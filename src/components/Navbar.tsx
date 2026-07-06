@@ -9,13 +9,14 @@ function Navbar() {
             bg="white"
             border="1px solid"
             borderColor="purple.100"
-            rounded="2x1"
+            rounded="2xl"
             px={{ base: 4, md: 8 }}
+            py={4}
             shadow="sm"
             mb={10}
         >
             <HStack gap={3}>
-                <Text fontSize="2x1">⭐</Text>
+                <Text fontSize="2xl">⭐</Text>
                 <Text fontWeight="bold" fontSize="lg">
                     Roman Guevarra
                 </Text>
@@ -31,7 +32,7 @@ function Navbar() {
                 <Link href="/contact">Contact</Link>
             </HStack>
 
-            <Button variant="outline" colorPalette="purple" rounded="x1">
+            <Button variant="outline" colorPalette="purple" rounded="xl">
                 Download Resume
             </Button>
         </Flex>
