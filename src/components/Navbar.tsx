@@ -1,5 +1,10 @@
 import { Button, Flex, HStack, Link, Text } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const navLinkStyles = ({ isActive }: { isActive: boolean }) => ({
+  color: isActive ? "#9f7aea" : "inherit",
+  fontWeight: isActive ? "700" : "400",
+});
 
 function Navbar() {
   return (
@@ -24,11 +29,16 @@ function Navbar() {
       </HStack>
 
       <HStack display={{ base: "none", md: "flex" }} gap={8} fontSize="sm">
-        <Link asChild color="purple.500" fontWeight="bold">
-          <RouterLink to="/">Home</RouterLink>
-        </Link>
         <Link asChild>
-          <RouterLink to="/projects">Projects</RouterLink>
+          <NavLink to="/" style={navLinkStyles}>
+            Home
+          </NavLink>
+        </Link>
+
+        <Link asChild>
+          <NavLink to="/projects" style={navLinkStyles}>
+            Projects
+          </NavLink>
         </Link>
       </HStack>
 
