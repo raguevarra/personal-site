@@ -17,9 +17,9 @@ export const projects: Project[] = [
             "Built as a full-stack side project using Next.js, PostgreSQL, Prisma, and TypeScript. The app focuses on household-based finance tracking, transaction management, reusable components, and backend management.",
         tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "React"],
         featured: true,
-        githubUrl: "",
+        githubUrl: "https://github.com/raguevarra/financeTracker",
         liveUrl: "",
-        image: "",
+        image: "/finance_tracker_screenshot.webp",
     },
     {
         name: "Personal Website",
