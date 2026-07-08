@@ -23,6 +23,7 @@ export const experience: Experience[] = [
             "Supported deployment workflows and helped maintain clean, usable application experiences.",
         ],
         tags: ["Webflow", "Figma", "Web Development", "Client Work", "Teamwork", "Communication"],
+        logo: "civiconnect.webp",
     },
     {
         company: "Billyard Insurance Group",
@@ -37,5 +38,6 @@ export const experience: Experience[] = [
             "Organized automation-related data into a clearer tracking structure so stakeholders could better understand progress, blockers, and completed work.",
         ],
         tags: ["Power Automate", "Jira", "Automation", "React", "TypeScript"],
+        logo: "/billyardlogo.webp",
     }
 ]
