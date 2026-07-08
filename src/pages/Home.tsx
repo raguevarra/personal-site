@@ -102,7 +102,7 @@ function Home() {
           bg="purple.100"
         >
           <Image
-            src="/dinnerpic.png"
+            src="/dinnerpic.webp"
             alt="Roman Guevarra"
             w="100%"
             h="100%"
