@@ -5,6 +5,7 @@ import {
     Card,
     Flex,
     Heading,
+    Image,
     SimpleGrid,
     Stack,
     Text,
@@ -51,17 +52,43 @@ function Experience() {
                                 justify="space-between"
                                 align={{ base: "flex-start", md: "center" }}
                                 direction={{ base: "column", md: "row" }}
-                                gap={3}
+                                gap={4}
                             >
-                                <Box>
-                                    <Heading size="md">{job.role}</Heading>
-                                    <Text color="purple.500" fontWeight="bold">
-                                        {job.company}
-                                    </Text>
-                                    <Text fontSize="sm" color="gray.500">
-                                        {job.location}
-                                    </Text>
-                                </Box>
+                                <Flex align="center" gap={4}>
+                                    {job.logo ? (
+                                        <Box
+                                            w="72px"
+                                            h="72px"
+                                            rounded="2xl"
+                                            overflow="hidden"
+                                            bg="white"
+                                            border="1px solid"
+                                            borderColor="purple.100"
+                                            flexShrink={0}
+                                            display="flex"
+                                            alignItems="center"
+                                            justifyContent="center"
+                                        >
+                                            <Image
+                                                src={job.logo}
+                                                alt={`${job.company} logo`}
+                                                w="80%"
+                                                h="80%"
+                                                objectFit="contain"
+                                            />
+                                        </Box>
+                                    ) : null}
+
+                                    <Box>
+                                        <Heading size="md">{job.role}</Heading>
+                                        <Text color="purple.500" fontWeight="bold">
+                                            {job.company}
+                                        </Text>
+                                        <Text fontSize="sm" color="gray.500">
+                                            {job.location}
+                                        </Text>
+                                    </Box>
+                                </Flex>
 
                                 <Badge
                                     colorPalette="purple"
@@ -76,7 +103,7 @@ function Experience() {
 
                             <Text color="gray.700">{job.description}</Text>
 
-                            <Stack as="ul" gap={2} pl={5}>
+                            <Stack gap={3}>
                                 {job.bullets.map((bullet) => (
                                     <Flex key={bullet} gap={3} align="flex-start">
                                         <Box
@@ -95,7 +122,7 @@ function Experience() {
                             </Stack>
 
                             <Flex gap={2} flexWrap="wrap">
-                                {job.tags.map((tag) =>  (
+                                {job.tags.map((tag) => (
                                     <Badge key={tag} colorPalette="purple" variant="subtle">
                                         {tag}
                                     </Badge>
@@ -106,12 +133,13 @@ function Experience() {
                 ))}
             </Stack>
 
-            <SimpleGrid columns={{ base: 1, md: 3}} gap={4}>
+            <SimpleGrid columns={{ base: 1, md: 3 }} gap={4}>
                 <Card.Root rounded="2xl" borderColor="purple.100" bg="purple.50">
                     <Card.Body gap={2}>
                         <Heading size="sm">Web Development</Heading>
                         <Text fontSize="sm" color="gray.700">
-                            Building responsive interfaces, reusable components, and smooth user experiences.
+                            Building responsive interfaces, reusable components, and smooth
+                            user experiences.
                         </Text>
                     </Card.Body>
                 </Card.Root>
@@ -120,7 +148,8 @@ function Experience() {
                     <Card.Body gap={2}>
                         <Heading size="sm">Automation</Heading>
                         <Text fontSize="sm" color="gray.700">
-                            Creating workflows that reduce manual effort and improve internal processes.
+                            Creating workflows that reduce manual effort and improve internal
+                            processes.
                         </Text>
                     </Card.Body>
                 </Card.Root>
@@ -129,7 +158,8 @@ function Experience() {
                     <Card.Body gap={2}>
                         <Heading size="sm">Collaboration</Heading>
                         <Text fontSize="sm" color="gray.700">
-                            Working with teams, clients, and stakeholders to turn needs into practical solutions.
+                            Working with teams, clients, and stakeholders to turn needs into
+                            practical solutions.
                         </Text>
                     </Card.Body>
                 </Card.Root>
