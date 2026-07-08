@@ -141,7 +141,18 @@ function Home() {
             <SimpleGrid columns={{ base: 1, md: 3 }} gap={4}>
               {featuredProjects.map((project) => (
                 <Card.Root key={project.name} overflow="hidden" rounded="xl">
-                  <Box h="96px" bg="purple.100" />
+                  {project.image? (
+                    <Image
+                      src={project.image}
+                      alt={`${project.name} screenshot`}
+                      h="96px"
+                      w="100"
+                      objectFit="cover"
+                      objectPosition="center 35%"
+                    />
+                  ) : (
+                    <Box h="96px" bg="purple.100" />
+                  )}
                   <Card.Body gap={2} p={4}>
                     <Heading size="sm">{project.name}</Heading>
                     <Text fontSize="sm" color="gray.700">
