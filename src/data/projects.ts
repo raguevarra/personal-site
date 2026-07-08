@@ -28,7 +28,7 @@ export const projects: Project[] = [
             "Designed and developed with React, TypeScript, Vite, and Chakra UI with a focus on clean layout, responsive design, and reusable components.",
         tags: ["React", "TypeScript", "Vite", "Chakra UI"],
         featured: true,
-        githubUrl: "",
+        githubUrl: "https://github.com/raguevarra/personal-site",
         liveUrl: "",
         image: "",
     },
