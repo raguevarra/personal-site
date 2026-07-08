@@ -9,7 +9,7 @@ type LayoutProps = {
 function Layout({ children }: LayoutProps) {
     return (
         <Box minH="100vh" bg="#fbf9ff" color="#24213a">
-            <Container maxW="7x1" py={6}>
+            <Container maxW="7xl" py={6}>
                 <Navbar />
                 <Box as="main">{children}</Box>
             </Container>
