@@ -9,6 +9,7 @@ import {
     SimpleGrid,
     Stack,
     Text,
+    Image,
 } from "@chakra-ui/react";
 
 import { Link as RouterLink } from "react-router-dom";
@@ -49,7 +50,18 @@ function Projects() {
                         overflow="hidden"
                         bg="white"
                     >
-                        <Box h="180px" bg="purple.100" />
+                        {project.image? (
+                            <Image
+                                src={project.image}
+                                alt={`${project.name} screenshot`}
+                                h="180px"
+                                w="100%"
+                                objectFit="cover"
+                                objectPosition="center 35%"
+                            />
+                        ) : (
+                            <Box h="180px" bg="purple.100" />
+                        )}
 
                         <Card.Body gap={4} p={6}>
                             <Stack gap={2}>
