@@ -42,8 +42,10 @@ function Navbar() {
         </Link>
       </HStack>
 
-      <Button variant="outline" colorPalette="purple" rounded="xl">
-        Download Resume
+      <Button asChild variant="outline" colorPalette="purple" rounded="xl">
+        <a href="/Resume_Dev.pdf" download>
+          Download Resume
+        </a>
       </Button>
     </Flex>
   );
