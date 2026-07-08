@@ -40,6 +40,12 @@ function Navbar() {
             Projects
           </NavLink>
         </Link>
+
+        <Link asChild>
+          <NavLink to ="/experience" style={navLinkStyles}>
+            Experience
+          </NavLink>
+        </Link>
       </HStack>
 
       <Button asChild variant="outline" colorPalette="purple" rounded="xl">
