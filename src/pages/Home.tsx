@@ -126,6 +126,16 @@ function Home() {
               When I'm not coding, you'll probably find me exploring new
               games, listening to music, hitting the gym, or sketching out ideas.
             </Text>
+            <Button
+              asChild
+              alignSelf="flext-start"
+              variant="outline"
+              colorPalette="purple"
+              rounded="xl"
+              maxW="125px"
+            >
+              <RouterLink to="/about">Read more →</RouterLink>
+            </Button>
           </Card.Body>
         </Card.Root>
 
