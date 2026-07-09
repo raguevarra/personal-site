@@ -46,6 +46,12 @@ function Navbar() {
             Experience
           </NavLink>
         </Link>
+
+        <Link asChild>
+          <NavLink to="/contact" style={navLinkStyles}>
+            Contact
+          </NavLink>
+        </Link>
       </HStack>
 
       <Button asChild variant="outline" colorPalette="purple" rounded="xl">
