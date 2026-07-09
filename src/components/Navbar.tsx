@@ -36,6 +36,12 @@ function Navbar() {
         </Link>
 
         <Link asChild>
+          <NavLink to="/about" style={navLinkStyles}>
+            About
+          </NavLink>
+        </Link>
+
+        <Link asChild>
           <NavLink to="/projects" style={navLinkStyles}>
             Projects
           </NavLink>
