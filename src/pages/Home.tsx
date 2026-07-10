@@ -13,24 +13,48 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+
+import {
+  HandWavingIcon,
+  UserCircleIcon,
+  StarIcon,
+  CodeIcon,
+  HeartIcon,
+  GameControllerIcon,
+  SparkleIcon,
+} from "@phosphor-icons/react";
+
 import { Link as RouterLink } from "react-router-dom";
 
 import { projects } from "../data/projects";
 
-const techStack = [
-  "JavaScript",
-  "Python",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "PostgreSQL",
-  "Prisma",
-  "Git",
-  "Docker",
-  "Vercel",
+const interests = [
+  {
+    label: "Gaming",
+    name: "Steam",
+    image: "/interests/steam-mono.svg",
+  },
+  {
+    label: "Anime",
+    name: "Crunchyroll",
+    image: "/interests/crunchyroll-mono.svg",
+  },
+  {
+    label: "Music",
+    name: "Spotify",
+    image: "/interests/spotify-mono.svg",
+  },
+  {
+    label: "Fitness",
+    name: "Nike",
+    image: "/interests/nike-mono.svg",
+  },
+  {
+    label: "Tech",
+    name: "OpenAI",
+    image: "/interests/openai.svg",
+  },
 ];
-
-const interests = ["Games", "Anime", "Music", "Fitness", "Tech"];
 
 function Home() {
   const featuredProjects = projects.filter((project) => project.featured);
@@ -52,7 +76,14 @@ function Home() {
             px={4}
             py={2}
           >
-            👋 Hi there! I'm Roman
+            <HStack gap={2}>
+              <HandWavingIcon
+                size={18}
+                weight="duotone"
+                color="var(--chakra-colors-yellow-500)"
+              />
+              Hi there! I'm Roman
+            </HStack>
           </Badge>
 
           <Heading
@@ -82,13 +113,31 @@ function Home() {
               <RouterLink to="/projects">View My Work</RouterLink>
             </Button>
             <Button variant="outline" colorPalette="purple" rounded="xl">
-              Get In Touch
+              <RouterLink to="/contact">Get In Touch</RouterLink>
             </Button>
           </HStack>
 
-          <Text fontSize="sm" color="gray.500">
-            🎮 ・ 💗 ・ {"</>"} ・ Open to new opportunities ✨
-          </Text>
+          <HStack gap={3} flexWrap="wrap" color="gray.500" fontSize="sm">
+            <Box color="purple.500">
+              <GameControllerIcon size={17} weight="duotone"/>
+            </Box>
+
+            <Text color="gray.300">•</Text>
+
+            <Box color="pink.500">
+              <HeartIcon size={17} weight="duotone"/>
+            </Box>
+
+            <Text color="gray.300">•</Text>
+
+            <Box color="blue.500">
+              <CodeIcon size={17} weight="duotone"/>
+            </Box>
+
+            <Text color="gray.300">•</Text>
+
+            <Text>Open to new opportunities!</Text>
+          </HStack>
         </Stack>
 
         <Box
@@ -115,16 +164,21 @@ function Home() {
 
       <Grid templateColumns={{ base: "1fr", lg: "0.85fr 2fr" }} gap={6} mb={6}>
         <Card.Root id="about" rounded="2xl" borderColor="purple.100">
-          <Card.Body gap={4}>
-            <Heading size="md">👤 About Me</Heading>
+          <Card.Body gap={3}>
+            <UserCircleIcon
+              size={30}
+              weight="duotone"
+              color="var(--chakra-colors-purple-500)"
+            />
+            <Heading size="md">About Me</Heading>
             <Text color="gray.700">
-              I'm a full-stack engineer who enjoys building end-to-end web
-              applications that make an impact. I care about craft, performance,
-              and creating smooth user experiences.
+              I'm a full-stack engineer who enjoys building polished and thoughtful
+              web experiences. I'm especially drawn to projects where I can combine
+              creativity, problem-solving, and my attention to detail.
             </Text>
             <Text color="gray.700">
-              When I'm not coding, you'll probably find me exploring new
-              games, listening to music, hitting the gym, or sketching out ideas.
+              My background spans full-stack development, automation, and business, giving me experience
+              building technical solutions with both the user and broader project goals in mind.
             </Text>
             <Button
               asChild
@@ -142,10 +196,18 @@ function Home() {
         <Card.Root id="projects" rounded="2xl" borderColor="purple.100">
           <Card.Body gap={4}>
             <Flex justify="space-between" align="center">
-              <Heading size="md">⭐ Featured Projects</Heading>
+              <HStack gap={2}>
+                <StarIcon
+                  size={22}
+                  weight="duotone"
+                  color="var(--chakra-colors-yellow-500)"
+                />
+                <Heading size="md">Featured Projects</Heading>
+              </HStack>
               <Link asChild color="purple.500" fontWeight="bold">
                 <RouterLink to="/projects">View all projects →</RouterLink>
               </Link>
+
             </Flex>
 
             <SimpleGrid columns={{ base: 1, md: 3 }} gap={4}>
@@ -200,33 +262,110 @@ function Home() {
       <Grid templateColumns={{ base: "1fr", lg: "1fr 1fr" }} gap={6} mb={6}>
         <Card.Root id="stack" rounded="2xl" borderColor="purple.100">
           <Card.Body gap={4}>
-            <Heading size="md">{"</>"} Tech Stack</Heading>
-            <HStack gap={2} flexWrap="wrap">
-              {techStack.map((tech) => (
-                <Badge key={tech} colorPalette="purple" variant="subtle" px={3} py={1}>
-                  {tech}
-                </Badge>
-              ))}
-            </HStack>
+            <CodeIcon
+              size={22}
+              weight="duotone"
+              color="var(--chakra-colors-blue-500)"
+            />
+            <Heading size="md">My Tech Stack</Heading>
+
+            <Text color="gray.700">
+              I work with a mix of front-end, back-end, database, and deployment
+              technologies to build complete web applications. You can find a closer
+              look at the tools I use and how I use them on my About page.
+            </Text>
+
+            <Button
+              asChild
+              alignSelf="flex-start"
+              variant="outline"
+              colorPalette="purple"
+              rounded="xl"
+              width="fit-content"
+            >
+              <RouterLink to="/about">Explore my tech stack →</RouterLink>
+            </Button>
           </Card.Body>
         </Card.Root>
 
         <Card.Root id="interests" rounded="2xl" borderColor="purple.100">
-          <Card.Body gap={4}>
-            <Heading size="md">💗 Interests</Heading>
-            <SimpleGrid columns={{ base: 2, md: 6 }} gap={3}>
+          <Card.Body gap={5}>
+            <HStack gap={2}>
+              <HeartIcon
+                size={22}
+                weight="duotone"
+                color="var(--chakra-colors-pink-500)"
+              />
+              <Heading size="md">Interests</Heading>
+            </HStack>
+            <SimpleGrid columns={{ base: 2, sm: 3, md: 5 }} gap={3}>
               {interests.map((interest) => (
                 <Box
-                  key={interest}
+                  key={interest.label}
+                  position="relative"
+                  h="90px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
                   bg="purple.50"
                   border="1px solid"
                   borderColor="purple.100"
                   rounded="xl"
-                  p={4}
-                  textAlign="center"
-                  fontWeight="medium"
+                  overflow="hidden"
+                  cursor="pointer"
+                  transition="all 0.2s ease"
+                  css={{
+                    "&:hover": {
+                      transform: "translateY(-3px)",
+                      borderColor: "var(--chakra-colors-purple-300)",
+                      boxShadow: "var(--chakra-shadows-sm)",
+                    },
+                    "&:hover .interest-logo": {
+                      opacity: 0,
+                      transform: "scale(0.9)",
+                    },
+                    "&:hover .interest-text": {
+                      opacity: 1,
+                      transform: "translateY(0)",
+                    },
+                  }}
                 >
-                  {interest}
+                  <Box
+                    className="interest-logo"
+                    w="52px"
+                    h="52px"
+                    bg="purple.500"
+                    transition="all 0.2s ease"
+                    maskImage={`url(${interest.image})`}
+                    maskRepeat="no-repeat"
+                    maskPosition="center"
+                    maskSize="contain"
+                    WebkitMaskImage={`url(${interest.image})`}
+                    WebkitMaskRepeat="no-repeat"
+                    WebkitMaskPosition="center"
+                    WebkitMaskSize="contain"
+                  />
+
+                  <Stack
+                    className="interest-text"
+                    position="absolute"
+                    inset={0}
+                    align="center"
+                    justify="center"
+                    gap={0}
+                    opacity={0}
+                    transform="translateY(6px)"
+                    pointerEvents="none"
+                    transition="all 0.2s ease"
+                  >
+                    <Text fontWeight="semibold" color="purple.700">
+                      {interest.label}
+                    </Text>
+
+                    <Text fontSize="xs" color="gray.500">
+                      {interest.name}
+                    </Text>
+                  </Stack>
                 </Box>
               ))}
             </SimpleGrid>
@@ -247,24 +386,40 @@ function Home() {
         p={6}
       >
         <Box>
-          <Heading size="md">Let&apos;s build something amazing together ✨</Heading>
+          <HStack gap={2}>
+            <SparkleIcon
+              size={22}
+              weight="duotone"
+              color="var(--chakra-colors-yellow-500)"
+            />
+            <Heading size="md">Let&apos;s build something amazing together</Heading>
+          </HStack>
           <Text color="gray.700">
             I'm currently open to new opportunities and exciting projects.
           </Text>
         </Box>
 
         <HStack gap={3} flexWrap="wrap">
-          <Button colorPalette="purple" rounded="xl">
-            Get In Touch
+          <Button variant="outline" rounded="xl">
+            <Link 
+              href="https://github.com/raguevarra"
+              target="_blank"
+              rel="noreferrer"
+              >
+              GitHub
+            </Link>
           </Button>
           <Button variant="outline" rounded="xl">
-            GitHub
+            <Link
+              href="https://www.linkedin.com/in/raguevarra"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </Link>
           </Button>
           <Button variant="outline" rounded="xl">
-            LinkedIn
-          </Button>
-          <Button variant="outline" rounded="xl">
-            Email
+            <Link href="mailto:romanguevarra2003@gmail.com">Email Me</Link>
           </Button>
         </HStack>
       </Flex>
