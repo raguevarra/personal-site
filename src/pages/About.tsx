@@ -3,28 +3,165 @@ import {
     Box,
     Button,
     Card,
-    Flex,
     Grid,
     Heading,
+    Icon,
     Image,
     SimpleGrid,
     Stack,
     Text
 } from "@chakra-ui/react";
 
+import {
+    SiCss,
+    SiDocker,
+    SiExpress,
+    SiGit,
+    SiGithub,
+    SiHtml5,
+    SiJavascript,
+    SiLinux,
+    SiNextdotjs,
+    SiNodedotjs,
+    SiPostgresql,
+    SiPostman,
+    SiPrisma,
+    SiPython,
+    SiReact,
+    SiTypescript,
+    SiVercel,
+    SiVite
+} from "react-icons/si";
+
 import { Link as RouterLink } from "react-router-dom";
 
-const skills = [
-    "Linux",
-    "React",
-    "TypeScript",
-    "Next.js",
-    "PostgreSQL",
-    "Prisma",
-    "Python",
-    "Git",
-    "Vercel",
+const skillGroups = [
+    {
+        title: "Languages",
+        skills: [
+            { name: "TypeScript", icon: SiTypescript },
+            { name: "JavaScript", icon: SiJavascript },
+            { name: "Python", icon: SiPython },
+            { name: "HTML", icon: SiHtml5 },
+            { name: "CSS", icon: SiCss },
+        ],
+    },
+    {
+        title: "Frontend",
+        skills: [
+            { name: "React", icon: SiReact },
+            { name: "Next.js", icon: SiNextdotjs },
+            { name: "Vite", icon: SiVite },
+        ],
+    },
+    {
+        title: "Backend & Database",
+        skills: [
+            { name: "Node.js", icon: SiNodedotjs },
+            { name: "Express", icon: SiExpress },
+            { name: "PostgreSQL", icon: SiPostgresql },
+            { name: "Prisma", icon: SiPrisma },
+        ],
+    },
+    {
+        title: "Tools",
+        skills: [
+            { name: "Git", icon: SiGit },
+            { name: "GitHub", icon: SiGithub },
+            { name: "Linux", icon: SiLinux },
+            { name: "Postman", icon: SiPostman },
+            { name: "Docker", icon: SiDocker },
+            { name: "Vercel", icon: SiVercel },
+        ],
+    },
 ];
+
+type Skill = {
+    name: string;
+    icon: React.ElementType;
+};
+
+function SkillIcon({ skill }: { skill: Skill }) {
+    return (
+        <Box
+            position="relative"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            w={{ base: "72px", md: "84px" }}
+            h={{ base: "72px", md: "84px" }}
+            rounded="2xl"
+            border="1px solid"
+            borderColor="purple.100"
+            bg="purple.50"
+            overflow="hidden"
+            cursor="default"
+            tabIndex={0}
+            aria-label={skill.name}
+            transition="transform 0.2s ease, box-shadow 0.2s ease"
+            css={{
+                "& .skill-logo": {
+                    transition:
+                        "filter 0.2s ease, opacity 0.2s ease, transform 0.2s ease",
+                },
+
+                "& .skill-label": {
+                    opacity: 0,
+                    transition: "opacity 0.2s ease",
+                },
+
+                "&:hover": {
+                    transform: "translateY(-4px)",
+                    boxShadow: "var(--chakra-shadows-md)",
+                },
+
+                "&:hover .skill-logo, &:focus-visible .skill-logo": {
+                    filter: "blur(4px)",
+                    opacity: 0.25,
+                    transform: "scale(1.12)",
+                },
+
+                "&:hover .skill-label, &:focus-visible .skill-label": {
+                    opacity: 1,
+                },
+            }}
+            _focusVisible={{
+                outline: "2px solid",
+                outlineColor: "purple.400",
+                outlineOffset: "3px",
+            }}
+        >
+            <Icon
+                className="skill-logo"
+                as={skill.icon}
+                boxSize={{ base: 9, md: 11 }}
+                color="purple.600"
+            />
+
+            <Box
+                className="skill-label"
+                position="absolute"
+                inset={0}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                px={2}
+                bg="rgba(255, 255, 255, 0.35)"
+                backdropFilter="blur(1px)"
+            >
+                <Text
+                    fontSize={{ base: "xs", md: "sm" }}
+                    fontWeight="bold"
+                    color="purple.800"
+                    textAlign="center"
+                    lineHeight="short"
+                >
+                    {skill.name}
+                </Text>
+            </Box>
+        </Box>
+    );
+}
 
 const values = [
     {
@@ -134,16 +271,39 @@ function About() {
             </Box>
 
             <Card.Root rounded="2xl" borderColor="purple.100" bg="white">
-                <Card.Body gap={4} p={6}>
-                    <Heading size="md">Tech I Like Working With</Heading>
+                <Card.Body gap={7} p={{ base: 5, md: 7 }}>
+                    <Box>
+                        <Heading size="md">Tech I Like Working With</Heading>
 
-                    <Flex gap={2} flexWrap="wrap">
-                        {skills.map((skill) => (
-                            <Badge key={skill} colorPalette="purple" variant="subtle">
-                                {skill}
-                            </Badge>
+                        <Text mt={2} color="gray.600" fontSize="sm">
+                            Languages, frameworks, databases, and tools I've used across
+                            my work and personal projects.
+                        </Text>
+                    </Box>
+
+                    <Stack gap={7}>
+                        {skillGroups.map((group) => (
+                            <Box key={group.title}>
+                                <Heading size="sm" mb={4}>
+                                    {group.title}
+                                </Heading>
+
+                                <SimpleGrid
+                                    columns={{
+                                        base: 3,
+                                        sm: 4,
+                                        md: 6,
+                                        lg: 8,
+                                    }}
+                                    gap={4}
+                                >
+                                    {group.skills.map((skill) =>(
+                                        <SkillIcon key={skill.name} skill={skill} />
+                                    ))}
+                                </SimpleGrid>
+                            </Box>
                         ))}
-                    </Flex>
+                    </Stack>
                 </Card.Body>
             </Card.Root>
 
